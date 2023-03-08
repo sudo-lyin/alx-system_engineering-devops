@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -maxdepth 1 -name "*.html" -type f -newer ../ -exec sh -c 'if [ ! -f "../$(basename {})" ] || [ {} -nt "../$(basename {})" ]; then cp {} ../; fi' \;
+rsync -auv --exclude='*' --include='*.html' ./ ../
