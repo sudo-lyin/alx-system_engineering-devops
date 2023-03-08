@@ -1,5 +1,2 @@
 #!/bin/bash
-ls -1 | while read file
-do
-	echo $file
-done
+ls -1
