@@ -1,2 +1,8 @@
 #!/bin/bash
-find . -maxdepth 1 -name "*.html" -type f -newer ../ -exec cp -n {} ../ \;
+for file in $(find . -maxdepth 1 -name "*.html" -type f -newer ../); do
+  if [ ! -f "../$(basename $file)" ]; then
+    cp $file ../
+  elif [ $file -nt "../$(basename $file)" ]; then
+    cp $file ../
+  fi
+done
